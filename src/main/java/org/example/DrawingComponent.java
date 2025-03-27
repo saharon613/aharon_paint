@@ -21,6 +21,7 @@ public class DrawingComponent extends JComponent {
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, image.getWidth(), image.getHeight());
     }
+
     @Override
 
     protected void paintComponent(Graphics g) {

@@ -3,9 +3,7 @@ package org.example;
 import javax.swing.*;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
 public class PaintGui extends JFrame {
 
@@ -13,6 +11,7 @@ public class PaintGui extends JFrame {
     private final JButton paintButton = new JButton("Paint");
     private final JColorChooser colorChooser = new JColorChooser();
     private final JButton lineButton = new JButton("Line");
+    private boolean paintBol;
 
     public PaintGui() {
         setTitle("Paint");
@@ -37,8 +36,9 @@ public class PaintGui extends JFrame {
 
         canvas.addMouseMotionListener(new MouseMotionListener() {
             @Override
-            public void mouseDragged(MouseEvent event) {        // where the mouse is currently within the component
-                canvas.drawFromMouse(event.getX(), event.getY());
+            public void mouseDragged(MouseEvent event) {// where the mouse is currently within the component
+                if (paintBol)
+                    canvas.drawFromMouse(event.getX(), event.getY());
             }
 
             @Override
@@ -62,6 +62,34 @@ public class PaintGui extends JFrame {
             @Override
             public void mouseReleased(MouseEvent event) {
                 canvas.newClick();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        paintButton.addMouseListener(new MouseListener () {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                paintBol = true;
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
             }
 
             @Override
