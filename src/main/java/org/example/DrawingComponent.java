@@ -34,9 +34,9 @@ public class DrawingComponent extends JComponent {
 //        g.drawLine(getWidth(), 0, 0, getHeight());
     }
 
-    public void drawFromMouse(int x, int y) {
+    public void drawFromMouse(int x, int y, Color currentColor) {
         Graphics g = image.getGraphics();
-        g.setColor(Color.MAGENTA);
+        g.setColor(currentColor);
         if (oldx != -1 && oldy != -1) {
             g.drawLine(oldx, oldy, x, y);
         }

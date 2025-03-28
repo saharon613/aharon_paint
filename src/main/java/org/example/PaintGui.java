@@ -2,6 +2,8 @@ package org.example;
 
 import javax.swing.*;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,6 +14,7 @@ public class PaintGui extends JFrame {
     private final JColorChooser colorChooser = new JColorChooser();
     private final JButton lineButton = new JButton("Line");
     private boolean paintBol;
+    private Color currentColor = Color.MAGENTA;
 
     public PaintGui() {
         setTitle("Paint");
@@ -36,9 +39,9 @@ public class PaintGui extends JFrame {
 
         canvas.addMouseMotionListener(new MouseMotionListener() {
             @Override
-            public void mouseDragged(MouseEvent event) {// where the mouse is currently within the component
+            public void mouseDragged(MouseEvent event) { // where the mouse is currently within the component
                 if (paintBol)
-                    canvas.drawFromMouse(event.getX(), event.getY());
+                { canvas.drawFromMouse(event.getX(), event.getY(), currentColor); }
             }
 
             @Override
@@ -75,7 +78,7 @@ public class PaintGui extends JFrame {
             }
         });
 
-        paintButton.addMouseListener(new MouseListener () {
+        paintButton.addMouseListener(new MouseListener() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -100,6 +103,13 @@ public class PaintGui extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
 
+            }
+        });
+
+        colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                currentColor = colorChooser.getColor(); // Update the current color
             }
         });
     }
