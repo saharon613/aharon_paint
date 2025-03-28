@@ -51,4 +51,11 @@ public class DrawingComponent extends JComponent {
         oldy = -1;
         repaint();
     }
+
+    public void drawLineFromMouse(Point firstPoint, Point secondPoint, Color currentColor) {
+        Graphics g = image.getGraphics();
+        g.setColor(currentColor);
+        g.drawLine(firstPoint.x, firstPoint.y, secondPoint.x, secondPoint.y);
+        repaint();
+    }
 }
