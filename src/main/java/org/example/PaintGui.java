@@ -25,7 +25,7 @@ public class PaintGui extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        AbstractColorChooserPanel[] panels = { colorChooser.getChooserPanels()[0] };
+        AbstractColorChooserPanel[] panels = {colorChooser.getChooserPanels()[0]};
         colorChooser.setChooserPanels(panels);
 
         JPanel northPanel = new JPanel();
@@ -43,8 +43,9 @@ public class PaintGui extends JFrame {
         canvas.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent event) { // where the mouse is currently within the component
-                if (paintBol)
-                { canvas.drawFromMouse(event.getX(), event.getY(), currentColor); }
+                if (paintBol) {
+                    canvas.drawFromMouse(event.getX(), event.getY(), currentColor);
+                }
             }
 
             @Override
@@ -61,8 +62,7 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mousePressed(MouseEvent event)
-            {
+            public void mousePressed(MouseEvent event) {
                 if (lineBol) {
                     paintBol = false;
                     startPoint = event.getPoint();
