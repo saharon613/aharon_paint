@@ -15,6 +15,7 @@ public class PaintGui extends JFrame {
     private final JButton lineButton = new JButton("Line");
     private boolean paintBol;
     private boolean lineBol;
+    private boolean releasedBol;
     private Point startPoint;
     private Color currentColor = Color.MAGENTA;
 
@@ -60,15 +61,19 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mousePressed(MouseEvent event) {
-                if (lineBol)
-                    { startPoint = event.getPoint();}
+            public void mousePressed(MouseEvent event)
+            {
+                if (lineBol) {
+                    paintBol = false;
+                    startPoint = event.getPoint();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent event) {
                 canvas.newClick();
-                if (lineBol) {
+                //releasedBol = true;
+                if (lineBol && !paintBol) {
                     Point endPoint = event.getPoint();
                     canvas.drawLineFromMouse(startPoint, endPoint, currentColor);
                 }
