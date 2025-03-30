@@ -24,10 +24,6 @@ public class DrawingComponent extends JComponent {
         super.paintComponent(g);                // this clears the super one so that you can override it w/ your own
 
         g.drawImage(image, 0, 0, null);
-
-//        g.setColor(Color.MAGENTA);
-//        g.drawLine(0, 0, getWidth(), getHeight());
-//        g.drawLine(getWidth(), 0, 0, getHeight());
     }
 
     public void drawFromMouse(int x, int y, Color currentColor) {
