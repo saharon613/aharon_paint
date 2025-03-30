@@ -6,11 +6,7 @@ import java.awt.image.BufferedImage;
 
 public class DrawingComponent extends JComponent {
 
-    private final BufferedImage image = new BufferedImage(
-            800,
-            600,
-            BufferedImage.TYPE_INT_RGB
-    );
+    private final BufferedImage image = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
 
     private int oldx = -1;
     private int oldy = -1;
