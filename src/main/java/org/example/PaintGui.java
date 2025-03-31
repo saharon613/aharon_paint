@@ -164,4 +164,3 @@ public class PaintGui extends JFrame {
         PaintGui frame = new PaintGui();
         frame.setVisible(true);
     }
-}
