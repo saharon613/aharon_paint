@@ -95,6 +95,7 @@ public class PaintGui extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 paintBol = true;
+                lineBol = false;
             }
 
             @Override
@@ -130,6 +131,7 @@ public class PaintGui extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 lineBol = true;
+                paintBol = false;
             }
 
             @Override
