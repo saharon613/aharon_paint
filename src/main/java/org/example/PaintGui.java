@@ -19,7 +19,8 @@ public class PaintGui extends JFrame {
     private Point startPoint;
     private Color currentColor = Color.MAGENTA;
 
-    public PaintGui() {
+    public PaintGui()
+    {
         setTitle("Paint");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,7 +41,8 @@ public class PaintGui extends JFrame {
         add(northPanel, BorderLayout.NORTH);
         add(canvas, BorderLayout.CENTER);
 
-        canvas.addMouseMotionListener(new MouseMotionListener() {
+        canvas.addMouseMotionListener(new MouseMotionListener()
+        {
             @Override
             public void mouseDragged(MouseEvent event) { // where the mouse is currently within the component
                 if (paintBol) {
@@ -54,7 +56,8 @@ public class PaintGui extends JFrame {
             }
         });
 
-        canvas.addMouseListener(new MouseListener() {
+        canvas.addMouseListener(new MouseListener()
+        {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -90,7 +93,8 @@ public class PaintGui extends JFrame {
             }
         });
 
-        paintButton.addMouseListener(new MouseListener() {
+        paintButton.addMouseListener(new MouseListener()
+        {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -125,7 +129,8 @@ public class PaintGui extends JFrame {
             }
         });
 
-        lineButton.addMouseListener(new MouseListener() {
+        lineButton.addMouseListener(new MouseListener()
+        {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -154,7 +159,8 @@ public class PaintGui extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         PaintGui frame = new PaintGui();
         frame.setVisible(true);
     }
