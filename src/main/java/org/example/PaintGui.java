@@ -160,6 +160,6 @@ public class PaintGui extends JFrame {
 
     public static void main(String[] args) {
         PaintGui frame = new PaintGui();
-        frame.setVisible(true)
+        frame.setVisible(true);
     }
 }
