@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class PaintGui extends JFrame {
 
     private final DrawingComponent canvas = new DrawingComponent();
-    private PencilTool pencilTool = new PencilTool();
+    private Tool tool = new LineTool();
     private final JButton paintButton = new JButton("Paint");
     private final JColorChooser colorChooser = new JColorChooser();
     private final JButton lineButton = new JButton("Line");
@@ -40,16 +40,18 @@ public class PaintGui extends JFrame {
         add(northPanel, BorderLayout.NORTH);
         add(canvas, BorderLayout.CENTER);
 
+        canvas.setTool(tool);
+
         canvas.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent event) { // where the mouse is currently within the component
-                if (paintBol) {
+                //if (paintBol) {
                     lineBol = false;
                     Graphics g = canvas.getImage().getGraphics();
                     g.setColor(currentColor);
-                    pencilTool.dragged(g, event.getX(), event.getY());
+                    tool.dragged(g, event.getX(), event.getY());
                     canvas.repaint();
-                }
+                //}
 //                if (paintBol) {
 //                    canvas.drawFromMouse(event.getX(), event.getY(), currentColor);
 //                }
@@ -73,13 +75,13 @@ public class PaintGui extends JFrame {
 
             @Override
             public void mousePressed(MouseEvent event) {
-                if (paintBol) {
+                //if (paintBol) {
                     lineBol = false;
                     Graphics g = canvas.getImage().getGraphics();
                     g.setColor(currentColor);
-                    pencilTool.pressed(g, event.getX(), event.getY());
+                    tool.pressed(g, event.getX(), event.getY());
                     canvas.repaint();
-                }
+                //}
 //                if (lineBol) {
 //                    paintBol = false;
 //                    startPoint = event.getPoint();
@@ -89,13 +91,13 @@ public class PaintGui extends JFrame {
 
             @Override
             public void mouseReleased(MouseEvent event) {
-                if (paintBol) {
+                //if (paintBol) {
                     lineBol = false;
                     Graphics g = canvas.getImage().getGraphics();
                     g.setColor(currentColor);
-                    pencilTool.released(g, event.getX(), event.getY());
+                    tool.released(g, event.getX(), event.getY());
                     canvas.repaint();
-                }
+                //}
 //                canvas.newClick();
 //                if (lineBol && !paintBol) {
 //                    Point endPoint = event.getPoint();

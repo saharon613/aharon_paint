@@ -17,7 +17,7 @@ public class DrawingComponent extends JComponent {
     private Point startPoint;
     private Point endPoint;
 
-    private PencilTool pencilTool = new PencilTool();
+    private Tool tool;
 
     public DrawingComponent() {
         // set the image to be all white - white background
@@ -32,6 +32,7 @@ public class DrawingComponent extends JComponent {
         super.paintComponent(g);                // this clears the super one so that you can override it w/ your own
 
         g.drawImage(image, 0, 0, null);
+        tool.preview(g);
 
         if (startPoint != null && endPoint != null) {
             g.setColor(currentColor);
@@ -42,7 +43,7 @@ public class DrawingComponent extends JComponent {
     public void drawFromMouse(int x, int y, Color currentColor) {
         Graphics g = image.getGraphics();
         g.setColor(currentColor);
-        pencilTool.dragged(g, x, y);
+        tool.dragged(g, x, y);
         repaint();
 
 //        if (oldx != -1 && oldy != -1) {
@@ -86,6 +87,10 @@ public class DrawingComponent extends JComponent {
 
     public BufferedImage getImage() {
         return image;
+    }
+
+    public void setTool(Tool tool) {
+        this.tool = tool;
     }
 }
 
