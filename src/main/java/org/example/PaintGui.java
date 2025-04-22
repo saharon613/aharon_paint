@@ -10,15 +10,11 @@ import java.awt.event.*;
 public class PaintGui extends JFrame {
 
     private final DrawingComponent canvas = new DrawingComponent();
-    private Tool tool = null;
+    private final PaintController controller = new PaintController(canvas);
     private final JButton paintButton = new JButton("Paint");
     private final JColorChooser colorChooser = new JColorChooser();
     private final JButton lineButton = new JButton("Line");
     private final JButton eraserButton = new JButton("Eraser");
-    private boolean paintBol;
-    private boolean lineBol;
-    private Point startPoint;
-    private Color currentColor = Color.MAGENTA;
 
     public PaintGui() {
         setTitle("Paint");
@@ -47,183 +43,97 @@ public class PaintGui extends JFrame {
         add(northPanel, BorderLayout.NORTH);
         add(canvas, BorderLayout.CENTER);
 
-        canvas.setTool(tool);
-
         canvas.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent event) { // where the mouse is currently within the component
-                if (tool != null) {
-                    lineBol = false;
-                    Graphics g = canvas.getImage().getGraphics();
-                    g.setColor(currentColor);
-                    tool.dragged(g, event.getX(), event.getY());
-                    canvas.repaint();
-                }
-
-                if (tool instanceof LineTool) {
-                    ((LineTool) tool).setColor(currentColor);
-                }
-
-//                if (paintBol) {
-//                    canvas.drawFromMouse(event.getX(), event.getY(), currentColor);
-//                }
-//                if (lineBol) {
-//                    canvas.followMouseLine(event.getPoint(), currentColor);
-//                }
-            }
+                controller.mouseDragged(event); }
 
             @Override
-            public void mouseMoved(MouseEvent event) {
-
-            }
+            public void mouseMoved(MouseEvent event) {}
         });
 
         canvas.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent event) {
-
-            }
+            public void mouseClicked(MouseEvent event) {}
 
             @Override
-            public void mousePressed(MouseEvent event) {
-                //if (paintBol) {
-                    lineBol = false;
-                    Graphics g = canvas.getImage().getGraphics();
-                    g.setColor(currentColor);
-                    tool.pressed(g, event.getX(), event.getY());
-                    canvas.repaint();
-                //}
-//                if (lineBol) {
-//                    paintBol = false;
-//                    startPoint = event.getPoint();
-//                    canvas.setStartPoint(startPoint, currentColor);
-//                }
-            }
+            public void mousePressed(MouseEvent event)
+            { controller.mousePressed(event); }
 
             @Override
-            public void mouseReleased(MouseEvent event) {
-                //if (paintBol) {
-                    lineBol = false;
-                    Graphics g = canvas.getImage().getGraphics();
-                    g.setColor(currentColor);
-                    tool.released(g, event.getX(), event.getY());
-                    canvas.repaint();
-                //}
-//                canvas.newClick();
-//                if (lineBol && !paintBol) {
-//                    Point endPoint = event.getPoint();
-//                    canvas.drawLineFromMouse(startPoint, endPoint, currentColor);
-//                }
-            }
+            public void mouseReleased(MouseEvent event)
+            { controller.mouseReleased(event); }
 
             @Override
-            public void mouseEntered(MouseEvent event) {
-
-            }
+            public void mouseEntered(MouseEvent event) {}
 
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) {}
         });
 
         paintButton.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent e) {
-                paintBol = true;
-                lineBol = false;
-                tool = new PencilTool();
-                canvas.setTool(tool);
-            }
+            public void mouseClicked(MouseEvent e)
+            { controller.setTool(new PencilTool()); }
 
             @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
+            public void mousePressed(MouseEvent e) {}
 
             @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
+            public void mouseReleased(MouseEvent e) {}
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
+            public void mouseEntered(MouseEvent e) {}
 
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) {}
         });
 
         colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                currentColor = colorChooser.getColor(); // Update the current color
+                controller.setCurrentColor(colorChooser.getColor());
             }
         });
 
         lineButton.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent e) {
-                lineBol = true;
-                paintBol = false;
-                tool = new LineTool();
-                canvas.setTool(tool);
-            }
+            public void mouseClicked(MouseEvent e)
+            { controller.setTool(new LineTool()); }
 
             @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
+            public void mousePressed(MouseEvent e) {}
 
             @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
+            public void mouseReleased(MouseEvent e) {}
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
+            public void mouseEntered(MouseEvent e) {}
 
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) {}
         });
 
         eraserButton.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent e) {
-                tool = new EraserTool();
-                canvas.setTool(tool);
-            }
+            public void mouseClicked(MouseEvent e)
+            { controller.setTool(new EraserTool()); }
 
             @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
+            public void mousePressed(MouseEvent e) {}
 
             @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
+            public void mouseReleased(MouseEvent e) {}
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
+            public void mouseEntered(MouseEvent e) {}
 
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) {}
         });
     }
 
@@ -232,3 +142,4 @@ public class PaintGui extends JFrame {
         frame.setVisible(true);
     }
 }
+
