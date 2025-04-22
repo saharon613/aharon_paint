@@ -12,7 +12,7 @@ public interface Tool {
     /**
      * draws a preview of the tools operation if released is called
      *
-     * @param g
+     * @param g the Graphics to draw the preview on
      */
 
     void preview(Graphics g);
