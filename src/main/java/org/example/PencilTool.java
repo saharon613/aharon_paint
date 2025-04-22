@@ -23,10 +23,10 @@ public class PencilTool implements Tool {
     }
 
     @Override
-    public void dragged(Graphics g, int x, int y) {    // pass x and y, and draw a line from the thisx, thisy to the
-        g.drawLine(this.x, this.y, x, y);              // current mouse location
-        this.x = x;                                    // this here and for y allows for them to be reset when
-        this.y = y;                                     // theres a new press
+    public void dragged(Graphics g, int x, int y) {
+        g.drawLine(this.x, this.y, x, y);
+        this.x = x;
+        this.y = y;
     }
 
     @Override
