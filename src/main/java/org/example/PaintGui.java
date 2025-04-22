@@ -63,13 +63,13 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mousePressed(MouseEvent event)
-            { controller.mousePressed(event);
+            public void mousePressed(MouseEvent event) {
+                controller.mousePressed(event);
             }
 
             @Override
-            public void mouseReleased(MouseEvent event)
-            { controller.mouseReleased(event);
+            public void mouseReleased(MouseEvent event) {
+                controller.mouseReleased(event);
             }
 
             @Override
@@ -86,8 +86,8 @@ public class PaintGui extends JFrame {
         paintButton.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent e)
-            { controller.setTool(new PencilTool());
+            public void mouseClicked(MouseEvent e) {
+                controller.setTool(new PencilTool());
             }
 
             @Override
@@ -121,8 +121,8 @@ public class PaintGui extends JFrame {
         lineButton.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent e)
-            { controller.setTool(new LineTool());
+            public void mouseClicked(MouseEvent e) {
+                controller.setTool(new LineTool());
             }
 
             @Override
@@ -149,8 +149,8 @@ public class PaintGui extends JFrame {
         eraserButton.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent e)
-            { controller.setTool(new EraserTool());
+            public void mouseClicked(MouseEvent e) {
+                controller.setTool(new EraserTool());
             }
 
             @Override

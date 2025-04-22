@@ -42,7 +42,7 @@ class LineToolTest {
 
         // Set up internal state (assuming public setters or directly setting fields)
         tool.setColor(Color.RED);
-        tool.pressed(g,10, 20);
+        tool.pressed(g, 10, 20);
         tool.dragged(g, 100, 200);
 
         tool.preview(g);

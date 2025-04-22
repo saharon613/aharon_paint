@@ -19,7 +19,7 @@ public class PencilTool implements Tool {
     public void pressed(Graphics g, int x, int y) {     // pass x and y and save it - then draw the one point
         this.x = x;
         this.y = y;
-        g.drawLine(x,y,x,y);
+        g.drawLine(x, y, x, y);
     }
 
     @Override

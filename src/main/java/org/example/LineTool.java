@@ -21,7 +21,7 @@ public class LineTool implements Tool {
         this.y1 = y;
         this.x2 = x;
         this.y2 = y;
-        g.drawLine(x,y,x,y);
+        g.drawLine(x, y, x, y);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class LineTool implements Tool {
 
     @Override
     public void released(Graphics g, int x, int y) {
-        g.drawLine(this.x1,this.y1,x,y);
+        g.drawLine(this.x1, this.y1, x, y);
         x1 = 0;
         y1 = 0;
         x2 = 0;

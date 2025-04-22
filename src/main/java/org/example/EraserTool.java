@@ -2,8 +2,7 @@ package org.example;
 
 import java.awt.*;
 
-public class EraserTool implements Tool
-{
+public class EraserTool implements Tool {
     private int x;
     private int y;
 
