@@ -50,13 +50,17 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mouseMoved(MouseEvent event) {}
+            public void mouseMoved(MouseEvent event) {
+
+            }
         });
 
         canvas.addMouseListener(new MouseListener() {
 
             @Override
-            public void mouseClicked(MouseEvent event) {}
+            public void mouseClicked(MouseEvent event) {
+
+            }
 
             @Override
             public void mousePressed(MouseEvent event)
@@ -69,10 +73,14 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mouseEntered(MouseEvent event) {}
+            public void mouseEntered(MouseEvent event) {
+
+            }
 
             @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {
+
+            }
         });
 
         paintButton.addMouseListener(new MouseListener() {
@@ -83,16 +91,24 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mousePressed(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseReleased(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseEntered(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {
+
+            }
         });
 
         colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
@@ -110,16 +126,24 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mousePressed(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseReleased(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseEntered(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {
+
+            }
         });
 
         eraserButton.addMouseListener(new MouseListener() {
@@ -130,16 +154,24 @@ public class PaintGui extends JFrame {
             }
 
             @Override
-            public void mousePressed(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseReleased(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseEntered(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {
+
+            }
 
             @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {
+
+            }
         });
     }
 
