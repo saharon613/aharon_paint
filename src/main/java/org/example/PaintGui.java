@@ -46,7 +46,8 @@ public class PaintGui extends JFrame {
         canvas.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent event) { // where the mouse is currently within the component
-                controller.mouseDragged(event); }
+                controller.mouseDragged(event);
+            }
 
             @Override
             public void mouseMoved(MouseEvent event) {}
@@ -59,11 +60,13 @@ public class PaintGui extends JFrame {
 
             @Override
             public void mousePressed(MouseEvent event)
-            { controller.mousePressed(event); }
+            { controller.mousePressed(event);
+            }
 
             @Override
             public void mouseReleased(MouseEvent event)
-            { controller.mouseReleased(event); }
+            { controller.mouseReleased(event);
+            }
 
             @Override
             public void mouseEntered(MouseEvent event) {}
@@ -76,7 +79,8 @@ public class PaintGui extends JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e)
-            { controller.setTool(new PencilTool()); }
+            { controller.setTool(new PencilTool());
+            }
 
             @Override
             public void mousePressed(MouseEvent e) {}
@@ -102,7 +106,8 @@ public class PaintGui extends JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e)
-            { controller.setTool(new LineTool()); }
+            { controller.setTool(new LineTool());
+            }
 
             @Override
             public void mousePressed(MouseEvent e) {}
@@ -121,7 +126,8 @@ public class PaintGui extends JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e)
-            { controller.setTool(new EraserTool()); }
+            { controller.setTool(new EraserTool());
+            }
 
             @Override
             public void mousePressed(MouseEvent e) {}
