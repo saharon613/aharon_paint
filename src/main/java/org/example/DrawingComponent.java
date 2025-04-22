@@ -32,7 +32,9 @@ public class DrawingComponent extends JComponent {
         super.paintComponent(g);                // this clears the super one so that you can override it w/ your own
 
         g.drawImage(image, 0, 0, null);
-        tool.preview(g);
+        if (tool != null && tool instanceof LineTool) {
+            tool.preview(g);
+        }
 
         if (startPoint != null && endPoint != null) {
             g.setColor(currentColor);
