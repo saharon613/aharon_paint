@@ -26,6 +26,7 @@ public class LineTool implements Tool {
 
     @Override
     public void dragged(Graphics g, int x, int y) {
+        g.setColor(color);
         this.x2 = x;
         this.y2 = y;
     }
@@ -61,3 +62,4 @@ public class LineTool implements Tool {
         return y2;
     }
 }
+

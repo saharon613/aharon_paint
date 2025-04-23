@@ -24,9 +24,8 @@ public class DrawingComponent extends JComponent {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);                // this clears the super one so that you can override it w/ your own
-
         g.drawImage(image, 0, 0, null);
-        if (tool != null && tool instanceof LineTool) {
+        if (tool != null) {
             tool.preview(g);
         }
     }

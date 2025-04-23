@@ -4,6 +4,9 @@ import java.awt.*;
 
 public class PencilTool implements Tool {
 
+    private int x;
+    private int y;
+
     public int getX() {
         return x;
     }
@@ -11,9 +14,6 @@ public class PencilTool implements Tool {
     public int getY() {
         return y;
     }
-
-    private int x;
-    private int y;
 
     @Override
     public void pressed(Graphics g, int x, int y) {     // pass x and y and save it - then draw the one point
@@ -36,5 +36,10 @@ public class PencilTool implements Tool {
 
     @Override
     public void preview(Graphics g) {
+    }
+
+    @Override
+    public void setColor(Color color) {
+
     }
 }

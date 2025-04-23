@@ -16,17 +16,13 @@ public class PaintController {
     public void setTool(Tool tool) {
         this.tool = tool;
         canvas.setTool(tool);
-
-        if (tool instanceof LineTool) {
-            ((LineTool) tool).setColor(currentColor);
-        }
+        tool.setColor(currentColor);
     }
 
     public void setCurrentColor(Color color) {
         this.currentColor = color;
-
-        if (tool instanceof LineTool) {
-            ((LineTool) tool).setColor(color);
+        if (tool != null) {
+            tool.setColor(currentColor);
         }
     }
 

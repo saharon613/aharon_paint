@@ -12,14 +12,12 @@ public class EraserTool implements Tool {
         this.y = y;
         g.setColor(Color.WHITE);
         g.fillRect(x, y, 10, 10);
-        this.x = x;
-        this.y = y;
     }
 
     @Override
     public void dragged(Graphics g, int x, int y) {
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, 10, 10);
+        g.fillRect(x - 5, y - 5, 10, 10);
         this.x = x;                                    // this here and for y allows for them to be reset when
         this.y = y;
     }
@@ -33,4 +31,11 @@ public class EraserTool implements Tool {
     public void released(Graphics g, int x, int y) {
 
     }
+
+    @Override
+    public void setColor(Color color) {
+
+    }
+
 }
+
