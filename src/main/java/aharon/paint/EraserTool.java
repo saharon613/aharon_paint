@@ -1,4 +1,4 @@
-package org.example;
+package aharon.paint;
 
 import java.awt.*;
 
@@ -11,7 +11,7 @@ public class EraserTool implements Tool {
         this.x = x;
         this.y = y;
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, 10, 10);
+        g.fillRect(x - 5, y - 5, 10, 10);
     }
 
     @Override

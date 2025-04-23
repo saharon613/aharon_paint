@@ -1,4 +1,4 @@
-package org.example;
+package aharon.paint;
 
 import org.junit.jupiter.api.Test;
 

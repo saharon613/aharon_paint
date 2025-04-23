@@ -1,4 +1,4 @@
-package org.example;
+package aharon.paint;
 
 import javax.swing.*;
 import javax.swing.colorchooser.AbstractColorChooserPanel;

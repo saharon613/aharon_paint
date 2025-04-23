@@ -1,11 +1,9 @@
-package org.example;
+package aharon.paint;
 
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
-import java.time.chrono.Era;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
