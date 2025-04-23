@@ -28,7 +28,7 @@ class EraserToolTest {
         tool.dragged(g, 100, 200);
 
         verify(g).setColor(Color.WHITE);
-        verify(g).fillRect(100, 200, 10, 10);
+        verify(g).fillRect(95, 195, 10, 10);
     }
 
     @Test
