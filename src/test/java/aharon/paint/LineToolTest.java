@@ -38,26 +38,32 @@ class LineToolTest {
 
     @Test
     void preview() {
-        LineTool tool = new LineTool();
 
-        // Set up internal state (assuming public setters or directly setting fields)
+        // given
+        LineTool tool = new LineTool();
         tool.setColor(Color.RED);
         tool.pressed(g, 10, 20);
         tool.dragged(g, 100, 200);
 
+        // when
         tool.preview(g);
 
+        // then
         verify(g).setColor(Color.RED);
         verify(g).drawLine(10, 20, 100, 200);
     }
 
     @Test
     void released() {
+
+        // given
         LineTool tool = new LineTool();
-
         tool.pressed(g, 10, 20);
-        tool.released(g, 150, 250);  // final mouse release at (150, 250)
 
+        // when
+        tool.released(g, 150, 250);
+
+        // then
         verify(g).drawLine(10, 20, 150, 250);
 
         assertEquals(0, tool.getX());

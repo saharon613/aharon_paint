@@ -12,19 +12,28 @@ class EraserToolTest {
 
     @Test
     void pressed() {
+
+        // given
         EraserTool tool = new EraserTool();
+
+        // when
         tool.pressed(g, 50, 100);
 
+        // then
         verify(g).setColor(Color.WHITE);
         verify(g).fillRect(45, 95, 10, 10);
     }
 
     @Test
     void dragged() {
+
+        // given
         EraserTool tool = new EraserTool();
 
+        // when
         tool.dragged(g, 100, 200);
 
+        // then
         verify(g).setColor(Color.WHITE);
         verify(g).fillRect(95, 195, 10, 10);
     }
