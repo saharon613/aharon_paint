@@ -13,7 +13,6 @@ public interface Tool {
      * draws a preview of the tools operation if released is called
      *
      * @param g the Graphics to draw the preview on
-     *
      */
 
     void preview(Graphics g);
@@ -21,7 +20,8 @@ public interface Tool {
     void released(Graphics g, int x, int y);
 
     /**
-     * @param color the color the tool will use */
+     * @param color the color the tool will use
+     */
 
     void setColor(Color color);
 }
