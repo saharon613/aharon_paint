@@ -17,7 +17,7 @@ public class PencilTool implements Tool {
     }
 
     @Override
-    public void pressed(BufferedImage image, Graphics2D g, int x, int y) {     // pass x and y and save it - then draw the one point
+    public void pressed(BufferedImage image, Graphics2D g, int x, int y) {
         this.x = x;
         this.y = y;
         g.drawLine(x, y, x, y);

@@ -8,38 +8,37 @@ public class BucketFillTool implements Tool {
 
     @Override
     public void pressed(BufferedImage image, Graphics2D g, int x, int y) {
-        int targetRGB = image.getRGB(x, y);
-        int fillRGB = fillColor.getRGB();
+        int pixelColor = image.getRGB(x, y);
+        int newColor = fillColor.getRGB();
 
-        if (targetRGB == fillRGB) return;
+        if (pixelColor == newColor) return;
 
-        floodFillRecursive(image, x, y, targetRGB, fillRGB);
+        floodFillRecursive(image, x, y, pixelColor, newColor);
         g.drawImage(image, 0, 0, null);
     }
 
-    private void floodFillRecursive(BufferedImage image, int x, int y, int targetRGB, int fillRGB) {
+    private void floodFillRecursive(BufferedImage image, int x, int y, int pixelColor, int newColor) {
         int width = image.getWidth();
         int height = image.getHeight();
 
-        // Out of bounds
         if (x < 0 || x >= width || y < 0 || y >= height) return;
 
-        // If the pixel is not the target color, return
-        if (image.getRGB(x, y) != targetRGB) return;
+        if (image.getRGB(x, y) != pixelColor) return;
 
-        // Fill the pixel
-        image.setRGB(x, y, fillRGB);
+        image.setRGB(x, y, newColor);
 
-        // Recursively fill all four directions
-        floodFillRecursive(image, x + 1, y, targetRGB, fillRGB); // Right
-        floodFillRecursive(image, x - 1, y, targetRGB, fillRGB); // Left
-        floodFillRecursive(image, x, y + 1, targetRGB, fillRGB); // Down
-        floodFillRecursive(image, x, y - 1, targetRGB, fillRGB); // Up
+        floodFillRecursive(image, x + 1, y, pixelColor, newColor); // Right
+        floodFillRecursive(image, x - 1, y, pixelColor, newColor); // Left
+        floodFillRecursive(image, x, y + 1, pixelColor, newColor); // Down
+        floodFillRecursive(image, x, y - 1, pixelColor, newColor); // Up
     }
 
     @Override public void dragged(Graphics2D g, int x, int y) {}
+
     @Override public void preview(Graphics2D g) {}
+
     @Override public void released(Graphics2D g, int x, int y) {}
+
     @Override public void setColor(Color color) {
         this.fillColor = color;
     }

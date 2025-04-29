@@ -17,7 +17,7 @@ public class LineTool implements Tool {
     }
 
     @Override
-    public void pressed(BufferedImage image, Graphics2D g, int x, int y) {     // pass x and y and save it - then draw the one point
+    public void pressed(BufferedImage image, Graphics2D g, int x, int y) {
         this.x1 = x;
         this.y1 = y;
         this.x2 = x;
