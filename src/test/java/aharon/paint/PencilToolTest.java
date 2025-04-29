@@ -3,13 +3,15 @@ package aharon.paint;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class PencilToolTest {
 
-    private Graphics g = mock();
+    private Graphics2D g = mock();
+    BufferedImage image = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
 
     @Test
     void pressed() {
@@ -17,7 +19,7 @@ class PencilToolTest {
         PencilTool penTool = new PencilTool();
 
         // when
-        penTool.pressed(g, 50, 100);
+        penTool.pressed(image, g, 50, 100);
 
         // then
         assertEquals(50, penTool.getX());
@@ -29,7 +31,7 @@ class PencilToolTest {
     void dragged() {
         // given
         PencilTool penTool = new PencilTool();
-        penTool.pressed(g, 50, 100);
+        penTool.pressed(image, g, 50, 100);
 
         // when
         penTool.dragged(g, 200, 150);

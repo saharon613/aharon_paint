@@ -2,6 +2,7 @@ package aharon.paint;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 public class PaintController {
 
@@ -28,16 +29,17 @@ public class PaintController {
 
     public void mousePressed(MouseEvent event) {
         if (tool != null) {
-            Graphics g = canvas.getImage().getGraphics();
+            BufferedImage image = canvas.getImage();
+            Graphics2D g = (Graphics2D) image.getGraphics();
             g.setColor(currentColor);
-            tool.pressed(g, event.getX(), event.getY());
+            tool.pressed(image, g, event.getX(), event.getY());
             canvas.repaint();
         }
     }
 
     public void mouseDragged(MouseEvent event) {
         if (tool != null) {
-            Graphics g = canvas.getImage().getGraphics();
+            Graphics2D g = (Graphics2D) canvas.getImage().getGraphics();
             g.setColor(currentColor);
             tool.dragged(g, event.getX(), event.getY());
             canvas.repaint();
@@ -46,7 +48,7 @@ public class PaintController {
 
     public void mouseReleased(MouseEvent event) {
         if (tool != null) {
-            Graphics g = canvas.getImage().getGraphics();
+            Graphics2D g = (Graphics2D) canvas.getImage().getGraphics();
             g.setColor(currentColor);
             tool.released(g, event.getX(), event.getY());
             canvas.repaint();

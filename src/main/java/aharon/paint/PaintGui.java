@@ -15,6 +15,7 @@ public class PaintGui extends JFrame {
     private final JColorChooser colorChooser = new JColorChooser();
     private final JButton lineButton = new JButton("Line");
     private final JButton eraserButton = new JButton("Eraser");
+    private final JButton bucketButton = new JButton("Bucket Fill");
 
     public PaintGui() {
         setTitle("Paint");
@@ -27,7 +28,7 @@ public class PaintGui extends JFrame {
 
         JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new BorderLayout());
-        leftPanel.setPreferredSize(new Dimension(155, 110));
+        leftPanel.setPreferredSize(new Dimension(258, 110));
 
         JPanel northPanel = new JPanel();
         northPanel.setLayout(new BorderLayout());
@@ -36,7 +37,8 @@ public class PaintGui extends JFrame {
         colorChooser.setPreviewPanel(new JPanel());
 
         leftPanel.add(paintButton, BorderLayout.WEST);
-        leftPanel.add(eraserButton, BorderLayout.EAST);
+        leftPanel.add(eraserButton, BorderLayout.CENTER);
+        leftPanel.add(bucketButton, BorderLayout.EAST);
         northPanel.add(colorChooser, BorderLayout.CENTER);
         northPanel.add(lineButton, BorderLayout.EAST);
         northPanel.add(leftPanel, BorderLayout.WEST);
@@ -151,6 +153,34 @@ public class PaintGui extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 controller.setTool(new EraserTool());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        bucketButton.addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                controller.setTool(new BucketFillTool());
             }
 
             @Override
