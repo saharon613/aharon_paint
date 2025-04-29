@@ -11,7 +11,7 @@ public class BucketFillTool implements Tool {
         int pixelColor = image.getRGB(x, y);
         int newColor = fillColor.getRGB();
 
-        if (pixelColor == newColor) return;
+        if (pixelColor == newColor) { return; }
 
         floodFillRecursive(image, x, y, pixelColor, newColor);
         g.drawImage(image, 0, 0, null);
@@ -21,9 +21,9 @@ public class BucketFillTool implements Tool {
         int width = image.getWidth();
         int height = image.getHeight();
 
-        if (x < 0 || x >= width || y < 0 || y >= height) return;
+        if (x < 0 || x >= width || y < 0 || y >= height) { return; }
 
-        if (image.getRGB(x, y) != pixelColor) return;
+        if (image.getRGB(x, y) != pixelColor) { return; }
 
         image.setRGB(x, y, newColor);
 
