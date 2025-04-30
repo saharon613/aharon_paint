@@ -3,12 +3,15 @@ package aharon.paint;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 class EraserToolTest {
-    private Graphics g = mock();
+    private Graphics2D g = mock();
+    BufferedImage image = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
 
     @Test
     void pressed() {
@@ -17,11 +20,12 @@ class EraserToolTest {
         EraserTool tool = new EraserTool();
 
         // when
-        tool.pressed(g, 50, 100);
+        tool.pressed(image, g, 50, 100);
 
         // then
         verify(g).setColor(Color.WHITE);
-        verify(g).fillRect(45, 95, 10, 10);
+        verify(g).setStroke(any(BasicStroke.class));
+        verify(g).draw(any(Line2D.Float.class));
     }
 
     @Test
@@ -35,7 +39,8 @@ class EraserToolTest {
 
         // then
         verify(g).setColor(Color.WHITE);
-        verify(g).fillRect(95, 195, 10, 10);
+        verify(g, atLeastOnce()).setStroke(any(BasicStroke.class));
+        verify(g, atLeastOnce()).draw(any(Line2D.Float.class));
     }
 
     @Test

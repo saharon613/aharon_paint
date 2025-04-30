@@ -1,13 +1,14 @@
 package aharon.paint;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 // interface defines methods that a class must implement
 
 public interface Tool {
-    void pressed(Graphics g, int x, int y);
+    void pressed(BufferedImage image, Graphics2D g, int x, int y);
 
-    void dragged(Graphics g, int x, int y);
+    void dragged(Graphics2D g, int x, int y);
 
     /**
      * draws a preview of the tools operation if released is called
@@ -15,9 +16,9 @@ public interface Tool {
      * @param g the Graphics to draw the preview on
      */
 
-    void preview(Graphics g);
+    void preview(Graphics2D g);
 
-    void released(Graphics g, int x, int y);
+    void released(Graphics2D g, int x, int y);
 
     /**
      * @param color the color the tool will use

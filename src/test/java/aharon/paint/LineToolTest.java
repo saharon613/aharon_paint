@@ -3,19 +3,21 @@ package aharon.paint;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 class LineToolTest {
-    private Graphics g = mock();
+    private Graphics2D g = mock();
+    BufferedImage image = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
 
     @Test
     void pressed() {
         LineTool tool = new LineTool();
         // when
-        tool.pressed(g, 50, 100);
+        tool.pressed(image, g, 50, 100);
 
         // then
         assertEquals(50, tool.getX());
@@ -26,7 +28,7 @@ class LineToolTest {
     @Test
     void dragged() {
         LineTool tool = new LineTool();
-        tool.pressed(g, 50, 100);
+        tool.pressed(image, g, 50, 100);
 
         // when
         tool.dragged(g, 200, 150);
@@ -42,7 +44,7 @@ class LineToolTest {
         // given
         LineTool tool = new LineTool();
         tool.setColor(Color.RED);
-        tool.pressed(g, 10, 20);
+        tool.pressed(image, g, 10, 20);
         tool.dragged(g, 100, 200);
 
         // when
@@ -58,7 +60,7 @@ class LineToolTest {
 
         // given
         LineTool tool = new LineTool();
-        tool.pressed(g, 10, 20);
+        tool.pressed(image, g, 10, 20);
 
         // when
         tool.released(g, 150, 250);
